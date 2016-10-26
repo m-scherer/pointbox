@@ -16,8 +16,8 @@ RSpec.describe TransactionType, type: :model do
   context "relationships" do
     it "belongs to a point transaction" do
       tran_type = TransactionType.new(name: "Redemption")
-      expect(tran_type).to respond_to(:point_transaction)
-      expect(tran_type).to_not respond_to(:point_transactions)
+      expect(tran_type).to respond_to(:point_transactions)
+      expect(tran_type).to_not respond_to(:point_transaction)
     end
   end
 end

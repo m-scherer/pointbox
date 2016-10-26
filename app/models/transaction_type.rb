@@ -1,5 +1,4 @@
 class TransactionType < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
-
-  belongs_to :point_transaction
+  has_many :point_transactions
 end
