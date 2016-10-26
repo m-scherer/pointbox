@@ -12,4 +12,20 @@ class RewardsController < ApplicationController
     @reward = Reward.new
   end
 
+  def create
+    @reward = Reward.new(reward_params)
+    if @reward.save
+      flash[:success] = "#{@reward.name} created!"
+      redirect_to reward_path(@reward)
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def reward_params
+    params.require(:reward).permit(:name, :cost)
+  end
+
 end
