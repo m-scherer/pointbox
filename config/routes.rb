@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :rewards
+    resources :users do
+      resources :points
+    end
   end
+
 
   resources :rewards, only: [:show, :index]
 

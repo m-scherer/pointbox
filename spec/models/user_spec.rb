@@ -44,26 +44,27 @@ RSpec.describe User, type: :model do
     end
   end
 
-  # context "calculate points" do
-  #   it "can return current point value" do
-  #     transactions.each do |transaction|
-  #       transaction.user = user
-  #       transaction.save
-  #     end
-  #
-  #     expected = transactions.reduce(0) do |result, transaction|
-  #       result += transaction.point_change
-  #     end
-  #
-  #     expect(user.current_balance).to eq(expected)
-  #     expect(user.current_balance).to_not eq(0)
-  #   end
-  #   it "can returned redeemed points" do
-  #     transactions.each do |transaction|
-  #       transaction.user = user
-  #       transaction.save
-  #     end
-  #     user.redeemed_points
-  #   end
-  # end
+  context "calculate points" do
+    it "can return current point value" do
+      transactions.each do |transaction|
+        transaction.user = user
+        transaction.save
+      end
+
+      expected = transactions.reduce(0) do |result, transaction|
+        result += transaction.point_change
+      end
+
+      expect(user.current_balance).to eq(expected)
+      expect(user.current_balance).to_not eq(0)
+    end
+    it "can returned redeemed points" do
+      transactions.each do |transaction|
+        transaction.user = user
+        transaction.transaction_type.name = "redemption"
+        transaction.save
+      end
+      user.redeemed_points
+    end
+  end
 end
