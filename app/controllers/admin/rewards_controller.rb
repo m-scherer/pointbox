@@ -1,4 +1,4 @@
-class Admin::RewardsController < Admin::BaseContoller
+class Admin::RewardsController < Admin::BaseController
 
   def new
     @reward = Reward.new

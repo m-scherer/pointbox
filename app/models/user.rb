@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   end
 
   def redeemed_points
-    byebug
     point_transactions.joins(:transaction_type).where(transaction_type_id: 4).sum(:point_change)
   end
+
 end
