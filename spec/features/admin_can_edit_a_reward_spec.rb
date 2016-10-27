@@ -14,7 +14,7 @@ describe 'Admin can edit a reward' do
                       )
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
-      visit reward_path(reward1)
+      visit admin_reward_path(reward1)
       click_on "Edit Reward"
       fill_in "reward[name]", with: reward2.name
       fill_in "reward[cost]", with: reward2.cost

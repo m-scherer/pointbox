@@ -1,0 +1,9 @@
+<h1>All Rewards</h1>
+
+<ul>
+  <% @rewards.each do |reward| %>
+    <li>
+      <%= link_to "#{reward.name} ($#{reward.cost})", reward_path(reward) %>
+    </li>
+  <% end %>
+</ul>

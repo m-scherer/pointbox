@@ -7,11 +7,11 @@ describe "Admin can create a reward" do
   context "as an admin" do
     it "they can create a reward" do
       admin = User.create(name: "mike",
-      email: "mike@mike.com",
-      password: "pass",
-      password_confirmation: "pass",
-      role: 1
-      )
+                    email: "mike@mike.com",
+                    password: "pass",
+                    password_confirmation: "pass",
+                    role: 1
+                    )
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
       visit new_admin_reward_path

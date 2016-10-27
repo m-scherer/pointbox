@@ -1,5 +1,13 @@
 class Admin::RewardsController < Admin::BaseController
 
+  def index
+    @rewards = Reward.all
+  end
+
+  def show
+    @reward = Reward.find(params[:id])
+  end
+
   def new
     @reward = Reward.new
   end
