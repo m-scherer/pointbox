@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   has_many :rewards, through: :user_rewards
   has_many :point_transactions
 
+  enum role: [:default, :admin]
+
 
   def current_balance
     point_transactions.sum(:point_change)

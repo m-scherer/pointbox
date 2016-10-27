@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  resources :rewards
-
   resources :users, only: [:new, :create, :show]
+
+  namespace :admin do
+    resources :rewards, only: [:new, :create, :edit, :update, :delete]
+  end
+
+  resources :rewards, only: [:show, :index]
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
