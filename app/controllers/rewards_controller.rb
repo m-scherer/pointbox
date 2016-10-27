@@ -22,6 +22,20 @@ class RewardsController < ApplicationController
     end
   end
 
+  def edit
+    @reward = Reward.find(params[:id])
+  end
+
+  def update
+    @reward = Reward.find(params[:id])
+    if @reward.update(reward_params)
+      flash[:success] = "#{@reward.name} updated!"
+      redirect_to reward_path(@reward)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def reward_params
