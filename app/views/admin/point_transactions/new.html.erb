@@ -1,0 +1,7 @@
+<h1>Add Points</h1>
+
+<%= form_for [:admin, @user, @point_transaction] do |f|%>
+  <%= f.label :point_change %>
+  <%= f.number_field :point_change %>
+  <%= f.submit "Add Points"%>
+<% end %>

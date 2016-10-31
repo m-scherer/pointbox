@@ -3,11 +3,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :rewards
-    resources :users do
-      resources :points
+    resources :user do
+      resources :point_transactions
     end
   end
-
 
   resources :rewards, only: [:show, :index]
 

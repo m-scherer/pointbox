@@ -17,17 +17,16 @@ describe 'Admin can add points' do
     it 'they are able to add points to a user' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
-      visit new_user_points_path(user)
-      fill_in "user_points[add_points]", with: 100
+      visit new_admin_user_point_transaction_path(user)
+      fill_in "point_transaction[point_change]", with: 100
       click_on "Add Points"
-
       expect(page).to have_content(100)
 
-      visit new_user_point_path(user)
-      fill_in "user_points[add_points]", with: 200
+      visit new_admin_user_point_transaction_path(user)
+      fill_in "point_transaction[point_change]", with: 200
       click_on "Add Points"
 
-      expect(page).to have_content(200)
+      expect(page).to have_content(300)
     end
   end
 end
